@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row" >
+  <div class="col-md-10">
+    <div class="timeline-centered">
+
+      <article class="timeline-entry" *ngFor="let p of post">
+
+        <div class="timeline-entry-inner">
+
+          <div class="timeline-icon bg-success" *ngIf="p.type == 'git'">
+            <i class="entypo-feather"></i>
+          </div>
+
+          <div class="timeline-icon bg-info" *ngIf="p.type == 'normal'">
+            <i class="entypo-suitcase"></i>
+          </div>
+
+          <div class="timeline-label">
+            <div class="box box-default">
+                <div class="box-header">
+                  <h4>{{p.title}}</h4>
+                  <span class="time"><i class="fa fa-clock-o"></i> createdAt: {{p.createdAt| date}} {{' , '}}{{p.createdAt | date:'shortTime'}}</span>
+                  <span *ngIf="p.updatedAt">updatedAt : {{p.updatedAt| date}}{{' , '}}{{p.updatedAt | date:'shortTime'}}</span>
+                </div>
+                <div class="box-body" [innerHTML]="p.body">
+                  <blockquote>{{p.body}}</blockquote>
+                </div>
+              <div class="box-footer">
+                <a class="btn btn-primary btn-xs" (click)="this.sendPost(p)">Edit</a>
+                <a class="btn btn-danger btn-xs" (click)="this.DeletePost(p.title)" data-widget="remove" data-toggle="tooltip" title="Remove">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </article>
+
+
+
+    </div>
+
+  </div>
+
+  </div>
+</div>
