@@ -42,7 +42,7 @@ app.use('/api/post', require('./api/post'));
 // Angular
 app.use(express.static(path.resolve(__dirname, '../app'))); //1
 app.get('*', function (req, res) { //2
-  var indexFile = path.resolve(__dirname,'../app/index.html');
+  var indexFile = path.resolve(__dirname,'../index.html');
   res.sendFile(indexFile);
 });
 
