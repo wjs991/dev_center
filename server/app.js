@@ -5,8 +5,12 @@ var path    = require('path');
 var app = express();
 
 // DB setting
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGO_DB); // 1
+//mongoose.connect("mongodb://wjs991:avjaCJDsBwch8brv9Z51N8YjRWWViqr0tQmmcebPuqZZG2zN2BL9PbjV1EVdNeXh9DKtsKwR9Dr0HIlUbmADlw==@wjs991.documents.azure.com:10255/?ssl=true&replicaSet=globaldb",{uri_decode_auth: true }); // 1
+mongoose.connect("mongodb://wjs991.documents.azure.com:10255/?ssl=true",{
+        auth:{
+            user:"wjs991",password:"avjaCJDsBwch8brv9Z51N8YjRWWViqr0tQmmcebPuqZZG2zN2BL9PbjV1EVdNeXh9DKtsKwR9Dr0HIlUbmADlw=="
+        }
+    })
 var db = mongoose.connection; // 2
 // 3﻿
 db.once("open", function(){
