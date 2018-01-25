@@ -44,6 +44,7 @@ app.get('*', function (req, res) { //2
 
 
 // Port setting
-app.listen(8080, function(){
+var port = process.env.PORT|| 8080;
+app.listen(port, function(){
     console.log("server on!");
 });
