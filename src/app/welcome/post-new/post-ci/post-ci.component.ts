@@ -9,7 +9,6 @@ import {
 
 @Component({
   selector: 'app-post-ci',
-  templateUrl: './post-ci.component.html',
   template: `<textarea id="{{elementId}}"></textarea>`
 })
 export class PostCiComponent implements AfterViewInit, OnDestroy {
