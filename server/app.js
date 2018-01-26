@@ -45,7 +45,7 @@ app.get('*', function (req, res) { //2
   var indexFile = path.resolve(__dirname,'../src/index.html');
   res.sendFile(indexFile);
 });
-
+app.disable('etag');
 
 // Port setting
 var port = process.env.PORT|| 8080;
