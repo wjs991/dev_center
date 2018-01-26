@@ -24,6 +24,7 @@ db.on("error", function(err){
 //wk
 
 // Other settings
+app.disable('Etag');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(function (req, res, next) { //1
@@ -47,7 +48,7 @@ app.get('*', function (req, res) { //2
   console.log(__dirname);
   res.sendFile(indexFile);
 });
-app.disable('Etag');
+
 
 // Port setting
 var port = process.env.PORT|| 8080;
