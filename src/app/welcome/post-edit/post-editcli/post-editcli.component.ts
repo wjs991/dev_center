@@ -4,7 +4,6 @@ import {PostService} from '../../../post.service';
 
 @Component({
   selector: 'app-post-editcli',
-  templateUrl: './post-editcli.component.html',
   template: `<textarea id="{{elementId}}"></textarea>`
 })
 export class PostEditcliComponent implements OnInit,AfterViewInit, OnDestroy,OnChanges  {
