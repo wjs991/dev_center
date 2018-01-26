@@ -41,11 +41,12 @@ app.use('/api/post', require('./api/post'));
 
 // Angular
 app.use(express.static(path.resolve(__dirname, 'src'))); //1
-console.log(__dirname);
-/*app.get('*', function (req, res) { //2
+
+app.get('*', function (req, res) { //2
   var indexFile = path.resolve(__dirname,'../src/index.html');
+  console.log(__dirname);
   res.sendFile(indexFile);
-});*/
+});
 app.disable('Etag');
 
 // Port setting
