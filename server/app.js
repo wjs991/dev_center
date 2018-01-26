@@ -40,9 +40,9 @@ app.use('/api/todo',require('./api/todo'));
 app.use('/api/post', require('./api/post'));
 
 // Angular
-app.use(express.static(path.resolve(__dirname, 'dist'))); //1
+app.use(express.static(path.resolve(__dirname, '../src'))); //1
 app.get('*', function (req, res) { //2
-  var indexFile = path.resolve(__dirname,'dist/index.html');
+  var indexFile = path.resolve(__dirname,'../src/index.html');
   res.sendFile(indexFile);
 });
 
