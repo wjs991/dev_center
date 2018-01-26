@@ -1,7 +1,7 @@
 /**
  * Created by sengwon on 2018-01-06.
  */
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { ApiResponse } from './api-response';
 import {FormGroup} from "@angular/forms";
