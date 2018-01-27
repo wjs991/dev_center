@@ -42,7 +42,7 @@ app.use('/api/user', require('./api/user')); //2
 app.use('/api/auth', require('./api/auth')); //2
 app.use('/api/todo',require('./api/todo'));
 app.use('/api/post', require('./api/post'));
-app.use('/push');
+app.use('/push', require('./git/push'));
 
 // Angular
 app.use(express.static(path.resolve(__dirname, '../dist'))); //1
