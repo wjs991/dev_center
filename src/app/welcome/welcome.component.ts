@@ -67,6 +67,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
     this.addComponent();
     this.postservice.zeroToNum();
+    this.postservice.setPageNum();
   }
 
   onClick(): void{

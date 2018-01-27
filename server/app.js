@@ -11,6 +11,9 @@ mongoose.connect("mongodb://wjs991.documents.azure.com:10255/?ssl=true",{
             user:"wjs991",password:"avjaCJDsBwch8brv9Z51N8YjRWWViqr0tQmmcebPuqZZG2zN2BL9PbjV1EVdNeXh9DKtsKwR9Dr0HIlUbmADlw=="
         }
     })
+
+//mongoose.connect("process.env.MONGODB_URI");//server
+//mongoose.connect("mongodb://admin:1234@ds121686.mlab.com:21686/heroku_p9q0dqln");//local
 var db = mongoose.connection; // 2
 // 3﻿
 db.once("open", function(){
@@ -39,6 +42,7 @@ app.use('/api/user', require('./api/user')); //2
 app.use('/api/auth', require('./api/auth')); //2
 app.use('/api/todo',require('./api/todo'));
 app.use('/api/post', require('./api/post'));
+app.use('/push');
 
 // Angular
 app.use(express.static(path.resolve(__dirname, '../dist'))); //1

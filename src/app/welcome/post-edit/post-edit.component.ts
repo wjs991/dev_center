@@ -43,6 +43,8 @@ export class PostEditComponent implements OnInit {
         console.log("err");
         this.utilService.handleApiError(this.errorResponse);
       });
+
+      this.postservice.zeroToNum();
   }
   onBodyTextEditorKeyUp(textvalue){
     console.log("Text is chenge",textvalue);
