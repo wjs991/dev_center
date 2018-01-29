@@ -21,8 +21,8 @@ function handleResponse(response) {
   });
 }
   router.get("/",function(req,res,next){
-   return http.get("https://github.com/login/oauth/authorize/"+`${client_id}/${redirect_uri}`, function(err){
-    console.log(err);
+   return http.get("https://github.com/login/oauth/authorize/"+`${client_id}`, function(err){
+    //console.log(err);
     }).end();
   }
 );
