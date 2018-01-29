@@ -20,7 +20,7 @@ var githubAuth = new ClientOAuth2({
   redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user',
   scopes: ['notifications', 'gist']
 })
-
+/*
 var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', { data: 'raw user data' });
   console.log(token);
   // Set the token TTL. 
@@ -36,7 +36,7 @@ token.sign({
       method: 'get',
       url: 'https://api.github.com/users'
 }) //=> { method, url, headers, ... }
-//console.log(token);
+//console.log(token);*/
 
 router.get("/",function(req,res){
   var uri = githubAuth.code.getUri()
