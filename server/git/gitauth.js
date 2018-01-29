@@ -22,12 +22,13 @@ var githubAuth = new ClientOAuth2({
 })
 router.get("/",function(req,res){
   var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', { data: 'raw user data' });
-  // Set the token TTL.
+  console.log(token);
+  // Set the token TTL. 
   token.expiresIn(1234) // Seconds.
   token.expiresIn(new Date('2016-11-08')) // Date.
 
   // Refresh the users credentials and save the new access token and info.
-  token.refresh().then(storeNewToken)
+ // token.refresh().then(storeNewToken)
 
   // Sign a standard HTTP request object, updating the URL with the access token
   // or adding authorization headers, depending on token type.
