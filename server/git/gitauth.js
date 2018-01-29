@@ -12,20 +12,12 @@ const octokit = require('@octokit/rest')({
 });
 var giturl = "https://github.com/login/oauth/authorize";
 
-function handleResponse(response) {
-  var serverData = '';
-  response.on('data', function (chunk) {
-    serverData += chunk;
-  });
-  response.on('end', function () {
-    console.log(serverData);
-  });
-}
-  router.get("/",function(req,res,next){
+router.get("/",function(req,res){
+  console.log("//");
     requset_api.get(`${giturl}/${client_id}`)
     .on('res',function(res){
       console.log(response.body);
-    })
+    });
   }
 );
 
