@@ -36,7 +36,7 @@ token.sign({
       method: 'get',
       url: 'https://api.github.com/users'
 }) //=> { method, url, headers, ... }
-console.log(token);
+//console.log(token);
 
 router.get("/",function(req,res){
   var uri = githubAuth.code.getUri()
@@ -46,7 +46,7 @@ router.get("/",function(req,res){
   }
 );
 
-router.post("/user",function(req,res){
+router.get("/user",function(req,res){
   githubAuth.code.getToken(req.originalUrl)
   .then(function (user) {
     console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... } 
@@ -62,7 +62,7 @@ router.post("/user",function(req,res){
       method: 'get',
       url: 'http://example.com'
     })
-
+    console.log(user.accessToken);
     // We should store the token into a database. 
     return res.send(user.accessToken)
   })
