@@ -10,6 +10,7 @@ var redirect_uri = "https://tmdtmdtmd.herokuapp.com/gitauth/user";
 const octokit = require('@octokit/rest')({
   debug: true
 });
+var giturl = "https://github.com/login/oauth/authorize";
 
 function handleResponse(response) {
   var serverData = '';
@@ -21,7 +22,7 @@ function handleResponse(response) {
   });
 }
   router.get("/",function(req,res,next){
-    requset_api.get("https://github.com/login/oauth/authorize/"+`${client_id}`)
+    requset_api.get(`${giturl}/${client_id}`)
     .on('res',function(res){
       console.log(response.body);
     })
