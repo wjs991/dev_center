@@ -1,5 +1,3 @@
-import { Promise } from "q";
-
 var express = require("express");
 var router = express.Router();
 var util = require('../util');
@@ -30,7 +28,7 @@ function handleResponse(response) {
 );
 
 router.post("/user",function(req,res){
-  console.log(req);
+  console.log(req.body.OAuth);
   console.log(res);
 });
 
