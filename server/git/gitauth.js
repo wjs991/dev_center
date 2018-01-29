@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var util = require('../util');
-var http = require('https');
+var requset_api= require("request");
 var token = " 70c60b523f839728920387acb4522500156b821c";
 var app = express();
 var client_id = "cc2d7e3046aa9e47749e";
@@ -21,9 +21,10 @@ function handleResponse(response) {
   });
 }
   router.get("/",function(req,res,next){
-   return http.get("https://github.com/login/oauth/authorize/"+`${client_id}`, function(err){
-    //console.log(err);
-    }).end();
+    requset_api.get("https://github.com/login/oauth/authorize/"+`${client_id}`)
+    .on('res',function(res){
+      console.log(response.body);
+    })
   }
 );
 
