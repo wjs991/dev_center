@@ -49,6 +49,7 @@ router.get("/",function(req,res){
 router.get("/user",function(req,res){
   githubAuth.code.getToken(req.originalUrl)
   .then(function (user) {
+    console.log("dddddddddddddddddddddddddddddddddddd");
     console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... } 
 
     // Refresh the current users access token. 
