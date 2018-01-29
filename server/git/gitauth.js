@@ -17,8 +17,7 @@ var githubAuth = new ClientOAuth2({
   clientSecret: 'b70de4195f582d14893003a4e0bd04e212e916de',
   accessTokenUri: 'https://github.com/login/oauth/access_token',
   authorizationUri: 'https://github.com/login/oauth/authorize',
-  redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user',
-  scopes: ['notifications', 'gist']
+  redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user'
 })
 /*
 var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', { data: 'raw user data' });
@@ -40,9 +39,7 @@ token.sign({
 
 router.get("/",function(req,res){
   var uri = githubAuth.code.getUri()
- 
   res.redirect(uri);
-    
   }
 );
 
