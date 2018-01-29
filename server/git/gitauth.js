@@ -38,7 +38,8 @@ token.sign({
 //console.log(token);*/
 
 router.get("/",function(req,res){
-  var uri = githubAuth.code.getUri()
+  var uri = githubAuth.code.getUri();
+  console.log(uri);
   res.redirect(uri);
   }
 );
