@@ -36,6 +36,7 @@ router.get("/",function(req,res){
       method: 'get',
       url: 'https://api.github.com/users'
     }) //=> { method, url, headers, ... }
+    console.log(token);
   }
 );
 
