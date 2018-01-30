@@ -12,31 +12,59 @@ const octokit = require('@octokit/rest')({
 });
 var giturl = "https://github.com/login/oauth/authorize";
 var ClientOAuth2 = require('client-oauth2');
-var config = require("./config.js");
-var githubOAuth = require('github-oauth')({
-  githubClient: process.env.GITHUB_KEY,
-  githubSecret: process.env.GITHUB_SECRET,
-  baseURL: 'https://tmdtmdtmd.herokuapp.com/gitauth',
-  loginURI: '/',
-  callbackURI: '/user'
+var githubAuth = new ClientOAuth2({
+  clientId: 'cc2d7e3046aa9e47749e',
+  clientSecret: '1b1bd1db2db2467b990c7c78601a526048b0acdc',
+  accessTokenUri: 'https://github.com/login/oauth/access_token',
+  authorizationUri: 'https://github.com/login/oauth/authorize',
+  redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user'
 })
 
+/*
+var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', { data: 'raw user data' });
+  console.log(token);
+  // Set the token TTL. 
+token.expiresIn(1234) // Seconds.
+token.expiresIn(new Date('2016-11-08')) // Date.
+
+  // Refresh the users credentials and save the new access token and info.
+ // token.refresh().then(storeNewToken)
+
+  // Sign a standard HTTP request object, updating the URL with the access token
+  // or adding authorization headers, depending on token type.
+token.sign({
+      method: 'get',
+      url: 'https://api.github.com/users'
+}) //=> { method, url, headers, ... }
+//console.log(token);*/
 
 router.get("/",function(req,res){
-  console.log("started oauth");
-  return githubOAuth.login(req, res);
-});
+  var uri = githubAuth.code.getUri();
+  console.log(uri);
+  res.redirect(uri);
+  }
+);
 
 router.get("/user",function(req,res){
-  console.log("received callback");
-  return githubOAuth.callback(req, res);
-})
+  githubAuth.code.getToken(req.originalUrl)
+  .then(function (user) {
+    console.log("dddddddddddddddddddddddddddddddddddd");
+    console.log(user) //=> { accessToken: '...', tokenType: 'bearer', ... } 
 
-githubOAuth.on('error', function(err) {
-  console.error('there was a login error', err)
-})
+    // Refresh the current users access token. 
+    user.refresh().then(function (updatedUser) {
+      console.log(updatedUser !== user) //=> true 
+      console.log(updatedUser.accessToken)
+    })
 
-githubOAuth.on('token', function(token, serverResponse) {
-  serverResponse.end(JSON.stringify(token))
+    // Sign API requests on behalf of the current user. 
+    user.sign({
+      method: 'get',
+      url: 'http://example.com'
+    })
+    console.log(user.accessToken);
+    // We should store the token into a database. 
+    return res.send(user.accessToken)
+  })
 })
 module.exports = router;
