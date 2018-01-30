@@ -62,12 +62,13 @@ router.get("/user",function(req,res){
     user.sign({
       method: 'get',
       url: 'https://api.github.com/users'
-
+    }).then(result=>{
+      console.log(result);
     })
     console.log(user);
-    console.log(user.accessToken);
+    console.log(user.accessToken);//TODO:유저 데이터 받아오는거!
     // We should store the token into a database. 
-    return res.redirect("https://api.github.com/user"+"?access_token"+user.accessToken);
+    return res.redirect("https://api.github.com/user"+"?access_token="+user.accessToken);
   })
 })
 module.exports = router;
