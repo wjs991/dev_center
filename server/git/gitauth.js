@@ -18,7 +18,7 @@ var githubAuth = new ClientOAuth2({
   accessTokenUri: 'https://github.com/login/oauth/access_token',
   authorizationUri: 'https://github.com/login/oauth/authorize',
   redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user',
-  scopes: ['user:email']
+  scopes: ['repo:status']
 })
 
 /*
