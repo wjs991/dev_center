@@ -10,11 +10,11 @@ var redirect_uri = "https://tmdtmdtmd.herokuapp.com/gitauth/user";
 const octokit = require('@octokit/rest')({
   debug: true
 });
-var giturl = "https://github.com/login/oauth/authorize";
 var ClientOAuth2 = require('client-oauth2');
+var config = require('./config');
 var githubAuth = new ClientOAuth2({
-  clientId: process.env.GITHUB_KEY,
-  clientSecret: process.env.GITHUB_SECRET,
+  clientId: config.GITHUB_KEY,
+  clientSecret: config.GITHUB_SECRET,
   accessTokenUri: 'https://github.com/login/oauth/access_token',
   authorizationUri: 'https://github.com/login/oauth/authorize',
   redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user',
