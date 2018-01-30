@@ -62,8 +62,8 @@ router.get("/user",function(req,res){
     user.sign({
       method: 'get',
       url: 'https://api.github.com/users'
-    }).then(result=>{
-      console.log(result);
+    },function(res){
+      console.log(res);
     })
     console.log(user);
     console.log(user.accessToken);//TODO:유저 데이터 받아오는거!
