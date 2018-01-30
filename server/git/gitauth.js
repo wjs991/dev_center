@@ -13,11 +13,12 @@ const octokit = require('@octokit/rest')({
 var giturl = "https://github.com/login/oauth/authorize";
 var ClientOAuth2 = require('client-oauth2');
 var githubAuth = new ClientOAuth2({
-  clientId: 'cc2d7e3046aa9e47749e',
-  clientSecret: '1b1bd1db2db2467b990c7c78601a526048b0acdc',
+  clientId: 'process.env.GITHUB_KEY',
+  clientSecret: 'process.env.GITHUB_SECRET',
   accessTokenUri: 'https://github.com/login/oauth/access_token',
   authorizationUri: 'https://github.com/login/oauth/authorize',
-  redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user'
+  redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user',
+  scopes: ['email']
 })
 
 /*
@@ -60,11 +61,11 @@ router.get("/user",function(req,res){
     // Sign API requests on behalf of the current user. 
     user.sign({
       method: 'get',
-      url: 'http://example.com'
+      url: 'https://api.github.com/users'
     })
     console.log(user.accessToken);
     // We should store the token into a database. 
-    return res.send(user.accessToken)
+    return res.send(user.accessToken) //send token
   })
 })
 module.exports = router;
