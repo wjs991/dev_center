@@ -65,7 +65,7 @@ router.get("/user",function(req,res){
     })
     console.log(user.accessToken);
     // We should store the token into a database. 
-    return res.send(user.accessToken) //send token
+    return res.redirect('https://api.github.com/'+"?user"+user.accessToken);
   })
 })
 module.exports = router;
