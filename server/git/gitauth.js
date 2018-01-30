@@ -13,19 +13,19 @@ const octokit = require('@octokit/rest')({
 var giturl = "https://github.com/login/oauth/authorize";
 var ClientOAuth2 = require('client-oauth2');
 var githubAuth = new ClientOAuth2({
-  clientId: 'process.env.GITHUB_KEY',
-  clientSecret: 'process.env.GITHUB_SECRET',
+  clientId: process.env.GITHUB_KEY,
+  clientSecret: process.env.GITHUB_SECRET,
   accessTokenUri: 'https://github.com/login/oauth/access_token',
   authorizationUri: 'https://github.com/login/oauth/authorize',
   redirectUri: 'https://tmdtmdtmd.herokuapp.com/gitauth/user',
-  scopes: ['repo:status']
+  scopes: ['repo:status','user:email']
 })
 
 /*
 var token = githubAuth.createToken('access token', 'optional refresh token', 'optional token type', { data: 'raw user data' });
   console.log(token);
   // Set the token TTL. 
-token.expiresIn(1234) // Seconds.
+token.expiresIn(1234) // Seconds
 token.expiresIn(new Date('2016-11-08')) // Date.
 
   // Refresh the users credentials and save the new access token and info.
