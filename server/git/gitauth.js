@@ -14,8 +14,8 @@ var giturl = "https://github.com/login/oauth/authorize";
 var ClientOAuth2 = require('client-oauth2');
 var config = require("./config.js");
 var githubOAuth = require('github-oauth')({
-  githubClient: config.GITHUB_KEY,
-  githubSecret: config.GITHUB_SECRET,
+  githubClient: process.env.GITHUB_KEY,
+  githubSecret: process.env.GITHUB_SECRET,
   baseURL: 'https://tmdtmdtmd.herokuapp.com/gitauth',
   loginURI: '/',
   callbackURI: '/user'
