@@ -1,3 +1,5 @@
+import { request } from "https";
+
 var express = require("express");
 var router = express.Router();
 var util = require('../util');
@@ -61,14 +63,16 @@ router.get("/user",function(req,res){
     // Sign API requests on behalf of the current user. 
     user.sign({
       method: 'get',
-      url: 'https://api.github.com/users'
-    },function(res){
-      console.log(res);
-    })
-    console.log(user);
+      url: 'https://api.github.com/user'
+    });
     console.log(user.accessToken);//TODO:유저 데이터 받아오는거!
     // We should store the token into a database. 
-    return res.redirect("https://api.github.com/user"+"?access_token="+user.accessToken);
+    return request(user.sign({
+      method:'get',
+      url:'https://api.githuib.com/user'
+    })).then(function(res){
+      console.log(res);
+    })
   })
 })
 module.exports = router;
