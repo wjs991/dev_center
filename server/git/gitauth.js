@@ -1,4 +1,4 @@
-import { request } from "https";
+
 
 var express = require("express");
 var router = express.Router();
@@ -67,7 +67,7 @@ router.get("/user",function(req,res){
     });
     console.log(user.accessToken);//TODO:유저 데이터 받아오는거!
     // We should store the token into a database. 
-    return request(user.sign({
+    return requset_api(user.sign({
       method:'get',
       url:'https://api.githuib.com/user'
     })).then(function(res){
