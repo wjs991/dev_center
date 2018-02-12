@@ -27,13 +27,17 @@ import { ProjIndexComponent } from './login/proj-index/proj-index.component';
 import { ProjNewComponent } from './login/proj-new/proj-new.component';
 import { PostNewComponent } from './welcome/post-new/post-new.component'; //1
 import {PostService} from './post.service';
-import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+
 import { PostCiComponent } from './welcome/post-new/post-ci/post-ci.component';
 import { PostPreComponent } from './welcome/post-pre/post-pre.component';
 import { PostEditComponent } from './welcome/post-edit/post-edit.component';
 import { PostEditcliComponent } from './welcome/post-edit/post-editcli/post-editcli.component';
 
 import { MaterialModule } from './material.module';
+import {AceEditorModule} from 'ng2-ace-editor';
+import{TestCodeingComponent} from './test-codeing/test-codeing.component';
+import {CodingService}from'./coding.service';
+import {NgTerminalModule} from 'ng-terminal';
 
 @NgModule({
   declarations: [
@@ -52,6 +56,7 @@ import { MaterialModule } from './material.module';
     PostPreComponent,
     PostEditComponent,
     PostEditcliComponent,
+    TestCodeingComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,10 +65,9 @@ import { MaterialModule } from './material.module';
     FormsModule,
     ReactiveFormsModule,
     MatProgressBarModule,
-    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(),
     MaterialModule,
-
-
+    AceEditorModule,
+    NgTerminalModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS,  useClass: RequestInterceptor,  multi: true},
@@ -73,6 +77,7 @@ import { MaterialModule } from './material.module';
     UserService,
     TodoService,
     PostService,
+    CodingService
   ],
   entryComponents:[
     PostPreComponent,

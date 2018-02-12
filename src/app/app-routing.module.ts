@@ -16,7 +16,7 @@ import {ProjIndexComponent} from "./login/proj-index/proj-index.component";
 import {ProjNewComponent} from "./login/proj-new/proj-new.component";
 import {PostNewComponent} from "./welcome/post-new/post-new.component";
 import {PostEditComponent} from "./welcome/post-edit/post-edit.component";
-
+import {TestCodeingComponent} from "./test-codeing/test-codeing.component";
 const routes: Routes = [
   { path: '',  component: WelcomeComponent },
   {path:'post/new', component:PostNewComponent},
@@ -32,6 +32,7 @@ const routes: Routes = [
       { path: '', component: UserIndexComponent },
     ]
   },
+  {path: 'game', component:TestCodeingComponent},
   {path: '**', component:Error404Component},
 
 

@@ -43,6 +43,7 @@ app.use('/api/auth', require('./api/auth')); //2
 app.use('/api/todo',require('./api/todo'));
 app.use('/api/post', require('./api/post'));
 app.use('/gitauth', require('./git/gitauth'));
+app.use('/api/game',require('./game/test'));    // 임시 test
 
 // Angular
 app.use(express.static(path.resolve(__dirname, '../dist'))); //1

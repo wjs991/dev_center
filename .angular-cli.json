@@ -18,7 +18,8 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": ["styles.css"],
+      "styles": ["styles.css",
+      "../node_modules/tinymce/plugins/codesample/css/prism.css"],
 
 
       "scripts": [
@@ -26,8 +27,9 @@
         "../node_modules/tinymce/themes/modern/theme.js",
         "../node_modules/tinymce/plugins/link/plugin.js",
         "../node_modules/tinymce/plugins/paste/plugin.js",
-        "../node_modules/tinymce/plugins/table/plugin.js"
-      ],
+        "../node_modules/tinymce/plugins/table/plugin.js",
+        "../node_modules/tinymce/plugins/codesample/plugin.js"
+        ],
       "environmentSource": "environments/environment.prod.ts",
       "environments": {
         "dev": "environments/environment.ts",

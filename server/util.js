@@ -14,7 +14,11 @@ util.successTrue = function(data){ //1
     data:data
   };
 };
-
+util.consoledd = function(data){
+  return{
+    raw:data
+  };
+};
 util.successFalse = function(err, message){ //2
   if(!err&&!message) message = 'data not found';
   return {

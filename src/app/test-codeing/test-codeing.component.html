@@ -1,0 +1,17 @@
+<!--component html goes here -->
+<ace-editor
+[(text)]="text"
+ id = "editor"    
+ style="height:500px; width:80%"
+ (textChanged)="onChange($event)">
+</ace-editor>
+
+<button (click)="onClick()">c언어</button>
+<button (click)="onCCclick()">java</button>
+<button (click)="submit()">submit</button>
+
+<ng-terminal 
+    (onInit)="onInit($event)" 
+    (onKey)="onKey($event)"
+    (onCCC)="onCCC($event)">
+  </ng-terminal>
